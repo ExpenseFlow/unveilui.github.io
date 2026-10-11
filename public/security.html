@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f9fc">
+  <meta name="description" content="How Unveil protects your workspace, and how to report a vulnerability.">
+  <title>Security & Responsible Disclosure — Unveil</title>
+  <link rel="canonical" href="https://www.unveilui.com/security.html">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="brand" href="./" aria-label="Unveil home"><span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span><span>unveil<span class="brand-dot">.</span></span></a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="#tour">Tour</a>
+        <a href="#how-it-works">How it works</a>
+        <a href="#for-teams">For teams</a>
+      </nav>
+      <a class="header-link" href="contact/?interest=access">Request access <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
+    </div>
+  </header>
+  <main id="main" class="legal">
+    <div class="shell legal-inner">
+
+      <p class="eyebrow"><span class="eyebrow-line"></span> Legal</p>
+      <h1>Security &amp; Responsible Disclosure</h1>
+      <p class="updated">Last updated: 2026-10-11</p>
+
+      <p>Unveil is built and operated by <a href="https://aryabhatta.ca">Aryabhatta Labs</a>. We take the security of the Unveil platform and our customers' prototypes, feedback and workspace data seriously, and we welcome reports of suspected vulnerabilities from independent security researchers.</p>
+      <p>This page covers security practices and disclosure specific to Unveil. For Aryabhatta Labs' company-wide policy, see the <a href="https://aryabhatta.ca/security/" target="_blank" rel="noopener">Aryabhatta Labs Security &amp; Responsible Disclosure Policy</a>.</p>
+
+      <h2>How We Protect Your Data</h2>
+      <ul>
+        <li>Data in transit is encrypted using TLS, including the connection between Unveil and its database, which verifies the server's certificate.</li>
+        <li>Uploaded prototypes are served from a separate origin (proto.unveilui.com), so a prototype's scripts cannot read your Unveil sign-in session.</li>
+        <li>Every state-changing request is protected by a per-session CSRF token and an origin check.</li>
+        <li>Passwords are stored only as salted argon2id hashes. Sign-in attempts are rate-limited per account and per address.</li>
+        <li>Access to production systems and customer data is restricted to authorized personnel and logged.</li>
+        <li>Support access to your workspace's data follows the consent and audit process described in our <a href="terms.html">Terms of Use</a> and <a href="privacy.html">Privacy Policy</a>.</li>
+        <li>We monitor our infrastructure and dependencies for known vulnerabilities on an ongoing basis.</li>
+      </ul>
+      <h2>Account &amp; Workspace Security Features</h2>
+      <ul>
+        <li>Each workspace is isolated: its data lives in its own database schema, and sessions from one workspace are refused by another.</li>
+        <li>Role-based access control (administrators and members, with project owners), enforced on every request.</li>
+        <li>An append-only audit history of workspace activity.</li>
+        <li>Invitation links and prototype access codes are single-use and expire.</li>
+        <li>Read-only, revocable integration tokens for connecting other tools to accepted feedback.</li>
+      </ul>
+      <h2>Backup &amp; Recovery</h2>
+      <p>Unveil's database runs on a managed data platform with automated backups, and uploaded prototype files are stored on encrypted volumes with daily snapshots, so your data can be restored in the event of infrastructure failure.</p>
+
+      <h2>Reporting a Vulnerability</h2>
+      <p>If you believe you've found a security vulnerability affecting Unveil (app.unveilui.com, proto.unveilui.com, this website, or supporting infrastructure), please report it using <a href="https://aryabhatta.ca/security/" target="_blank" rel="noopener">Aryabhatta Labs' vulnerability report form</a> — select "Unveil" as the affected product. Please include:</p>
+      <ul>
+        <li>A description of the vulnerability and its potential impact.</li>
+        <li>Steps to reproduce, including any proof-of-concept code, screenshots, or logs.</li>
+        <li>The URL, screen, or system affected.</li>
+        <li>Your contact information, so we can follow up with questions.</li>
+      </ul>
+      <p>You can also reach us via the <a href="contact/?category=security">Unveil contact form</a> using the "Security Issue" category.</p>
+      <h2>Our Commitment</h2>
+      <p>When you report a suspected vulnerability to us in good faith, we commit to:</p>
+      <ul>
+        <li>Acknowledge receipt of your report in a timely manner.</li>
+        <li>Investigate and validate the report.</li>
+        <li>Keep you informed of our progress toward resolution.</li>
+        <li>Remediate confirmed vulnerabilities within 90 days of confirmation, prioritized by severity and impact.</li>
+        <li>Publicly credit researchers who wish to be acknowledged, once a fix has been deployed, unless anonymity is requested.</li>
+      </ul>
+      <h2>Bug Bounty</h2>
+      <p>We don't currently offer a paid bug bounty program. Valid reports are eligible for public credit (see Our Commitment above), but not monetary reward.</p>
+      <h2>Responsible Disclosure Guidelines</h2>
+      <p>To help us protect our customers and systems, we ask that you:</p>
+      <ul>
+        <li>Give us at least 90 days from the date of your report to investigate and remediate an issue before disclosing it publicly.</li>
+        <li>Make a good faith effort to avoid privacy violations, data destruction, and interruption or degradation of the Service.</li>
+        <li>Only interact with accounts and workspaces you own or have explicit permission to access.</li>
+        <li>Do not exploit a vulnerability beyond what is necessary to confirm its existence.</li>
+        <li>Do not use automated scanning tools that generate significant traffic or load against our systems without prior authorization.</li>
+      </ul>
+      <h2>Safe Harbor</h2>
+      <p>We consider security research conducted in accordance with this policy to be authorized. We will not pursue legal action against researchers who make a good faith effort to comply with this policy, and we will work with you to understand and resolve the issue quickly.</p>
+      <h2>Scope</h2>
+      <p>This policy applies to the Unveil web app, the prototype content origin, this website, and the infrastructure that supports them. Vulnerabilities in third-party services we integrate with should be reported directly to that third party. Prototypes uploaded by customers are their own content; report a malicious prototype through the contact form so we can act on it.</p>
+      <h2>Data Retention &amp; Deletion</h2>
+      <p>Retention periods for your data, and how to request deletion, are covered in our <a href="privacy.html">Privacy Policy</a>.</p>
+      <h2>Questions</h2>
+      <p>You may direct any other questions about this policy by contacting us via the <a href="contact/">Unveil contact form</a> or the <a href="https://aryabhatta.ca/contact">Aryabhatta Labs contact form</a>.</p>
+
+    </div>
+  </main>
+  <footer class="footer">
+    <div class="shell footer-inner">
+      <a class="brand" href="./" aria-label="Unveil home"><span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span><span>unveil<span class="brand-dot">.</span></span></a>
+      <nav class="footer-links" aria-label="Legal and support">
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="security.html">Security</a>
+        <a href="third-party-notices.html">Third-party notices</a>
+        <a href="contact/">Contact</a>
+      </nav>
+      <p>© 2026 <a href="https://aryabhatta.ca">Aryabhatta Labs</a> · Made in Canada</p>
+    </div>
+  </footer>
+</body>
+</html>
