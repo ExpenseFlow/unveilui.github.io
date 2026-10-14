@@ -8,8 +8,8 @@
   const params = new URLSearchParams(location.search);
   if (params.get("interest") === "access") {
     category.value = "access";
-    subject.value = "Early access request";
-    message.value = "Team name and size:\nWhat you prototype (and with which tools):\nHow you review prototypes today:\n";
+    subject.value = "Account setup question";
+    message.value = "Workspace name:\nWhat are you trying to do?:\n";
   } else if (params.get("category")) {
     category.value = params.get("category");
   }
